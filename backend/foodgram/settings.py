@@ -10,7 +10,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'the-best-secret-key')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['158.160.35.19', 'foodmanager.sytes.net', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['84.201.156.236', 'foodmanager.sytes.net', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
