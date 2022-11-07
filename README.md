@@ -18,6 +18,12 @@
 
 ##### The full list of modules used in the project is available in [backend/requirements.txt](https://github.com/MrKalister/foodgram-project-react/blob/master/backend/requirements.txt)
 
+
+### The service is available to users:
+```
+http://84.201.156.236/
+```
+
 ## Description.
 Online Foodgram service and API for it. There is an implementation of the CI/CD project. In this service, users can publish recipes, subscribe to other users' publications, add their favorite recipes to Favorites, download a list of products needed to prepare one or more selected dishes.
 
@@ -109,3 +115,6 @@ python manage.py createsuperuser
 ```
 #### 10. Enjoy.
 open [URL](http://127.0.0.1/recipes) and enjoy.
+
+
+### Author: Ivan Shamaiski

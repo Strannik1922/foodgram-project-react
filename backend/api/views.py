@@ -39,7 +39,6 @@ from users.models import Follow, User
 
 class CustomTokenCreateView(views.TokenCreateView):
     """Для получения токена."""
-
     def _action(self, serializer):
         super()._action(serializer)
         token = utils.login_user(self.request, serializer.user)
@@ -52,7 +51,6 @@ class CustomTokenCreateView(views.TokenCreateView):
 
 class TagViewSet(ReadOnlyModelViewSet):
     """Вьюсет для обьектов класса Tag."""
-
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
     permission_classes = (permissions.AllowAny,)
@@ -60,7 +58,6 @@ class TagViewSet(ReadOnlyModelViewSet):
 
 class IngredientViewSet(ReadOnlyModelViewSet):
     """Вьюсет для обьектов класса Ingredient."""
-
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
     filter_backends = (DjangoFilterBackend,)
@@ -70,7 +67,6 @@ class IngredientViewSet(ReadOnlyModelViewSet):
 
 class UsersViewSet(UserViewSet):
     """Вьюсет для подписок, модель Follow."""
-
     pagination_class = LimitOffsetPagination
 
     @action(methods=['get'], detail=False)
@@ -120,7 +116,6 @@ class UsersViewSet(UserViewSet):
 
 class RecipeViewSet(ModelViewSet):
     """Вьюсет для модели Recipe."""
-
     queryset = Recipe.objects.all()
     permission_classes = (
         permissions.IsAuthenticatedOrReadOnly, IsAuthorOrReadOnly
