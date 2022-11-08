@@ -13,7 +13,6 @@ class UsersAdmin(BaseAdminSettings):
     """Кастомизация админ панели (управление пользователями)."""
     list_display = (
         'id',
-        'role',
         'username',
         'email',
         'first_name',
@@ -28,10 +27,10 @@ class FollowAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'user',
-        'author'
+        'following'
     )
-    list_display_links = ('id', 'user')
-    search_fields = ('user',)
+    list_display_links = ('id', 'user', 'following')
+    search_fields = ('user', 'following')
 
 
 admin.site.register(User, UsersAdmin)
