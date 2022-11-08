@@ -8,9 +8,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'the-best-secret-key')
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['158.160.40.17', 'foodmanager.sytes.net', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['158.160.40.88', 'foodmanager.sytes.net', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',

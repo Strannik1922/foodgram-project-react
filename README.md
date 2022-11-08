@@ -21,7 +21,7 @@
 
 ### The service is available to users:
 ```
-http://84.201.156.236/
+http://158.160.40.88/
 ```
 
 ## Description.

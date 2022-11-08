@@ -1,30 +1,38 @@
 from django.contrib import admin
 
-from users.models import Follow, User
+from .models import Follow, User
 
 
-@admin.register(User)
-class UserAdmin(admin.ModelAdmin):
-    """Класс админ-панели, отвечающий за пользователей."""
+class BaseAdminSettings(admin.ModelAdmin):
+    """Базовая кастомизация админ панели."""
+    empty_value_display = '-пусто-'
+    list_filter = ('email', 'username')
 
+
+class UsersAdmin(BaseAdminSettings):
+    """Кастомизация админ панели (управление пользователями)."""
     list_display = (
-        'pk',
+        'id',
+        'role',
         'username',
         'email',
         'first_name',
-        'last_name',
+        'last_name'
     )
-    search_fields = ('username', 'email',)
-    list_filter = ('username', 'email',)
+    list_display_links = ('id', 'username')
+    search_fields = ('role', 'username')
 
 
-@admin.register(Follow)
 class FollowAdmin(admin.ModelAdmin):
-    """Класс админ-панели, отвечающий за подписки."""
+    """Кастомизация админ панели (управление подписками)."""
+    list_display = (
+        'id',
+        'user',
+        'author'
+    )
+    list_display_links = ('id', 'user')
+    search_fields = ('user',)
 
-    list_display = ('pk', 'user', 'following',)
-    search_fields = ('user', 'following',)
-    list_filter = ('user', 'following',)
 
-
-admin.sites.AdminSite.empty_value_display = '-пусто-'
+admin.site.register(User, UsersAdmin)
+admin.site.register(Follow, FollowAdmin)
