@@ -2,29 +2,29 @@ version: '3.8'
 services:
 
   db:
-    image: postgres:14.4-alpine
+    image: postgres:13.0-alpine
     volumes:
-      - db_value:/var/lib/postgresql/data/
+      - /var/lib/postgresql/data/
     env_file:
       - ./.env
 
   backend:
-    image: strannik1922/foodgram_backend:latest
-    restart: always
+    image: ruzhova/backend:v1
     volumes:
-      - static_value:/app/static/
-      - media_value:/app/media/ 
+      - ../static/:/app/static/
+      - ../media/:/app/media/recipes/
     depends_on:
       - db
     env_file:
       - ./.env
+    restart: always
 
   frontend:
-    image: strannik1922/foodgram_frontend:latest
+    image: ruzhova/frontend:v1
     volumes:
       - ../frontend/:/app/result_build/
     depends_on:
-      - backend
+      - db
 
   nginx:
     image: nginx:1.19.3
