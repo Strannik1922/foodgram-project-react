@@ -19,7 +19,7 @@ class UsersAdmin(BaseAdminSettings):
         'last_name'
     )
     list_display_links = ('id', 'username')
-    search_fields = ('role', 'username')
+    search_fields = ('username', 'email')
 
 
 class FollowAdmin(admin.ModelAdmin):

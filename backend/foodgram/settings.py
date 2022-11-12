@@ -6,11 +6,11 @@ load_dotenv()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'the-best-secret-key')
+SECRET_KEY = os.getenv('SECRET_KEY', default='the-best-secret-key')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['158.160.40.88', 'foodmanager.sytes.net', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*', '130.193.38.35']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -24,9 +24,9 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
     'djoser',
-    'recipes',
-    'users',
-    'api'
+    'recipes.apps.RecipesConfig',
+    'users.apps.UsersConfig',
+    'api.apps.ApiConfig'
 ]
 
 MIDDLEWARE = [
@@ -127,8 +127,6 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
-    'PAGE_SIZE': 6,
-
 }
 
 DJOSER = {

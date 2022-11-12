@@ -41,8 +41,8 @@ class CustomUserSerializer(UserSerializer):
         Отображает подписки при запросе User.
         """
         request = self.context.get('request')
-        return (request and request.user.is_authenticated and
-                request.user.follower(author=obj).exists())
+        return (request and request.user.is_authenticated
+                and request.user.follower(author=obj).exists())
 
 
 class CustomUserCreateSerializer(UserCreateSerializer):
@@ -125,8 +125,8 @@ class RecipeSerializer(ModelSerializer):
     def get_is_in_shopping_cart(self, object):
         """Возвращает bool value на запрос есть рецепт в списке покупок."""
         request = self.context.get('request')
-        return (request and request.user.is_authenticated and
-                request.user.shopping_cart.filter(recipe=object).exists())
+        return (request and request.user.is_authenticated
+                and request.user.shopping_cart.filter(recipe=object).exists())
 
 
 class CreateResponseSerializer(ModelSerializer):

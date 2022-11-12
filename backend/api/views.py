@@ -12,7 +12,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
 from .filters import IngredientSearchFilter, RecipeFilter
-from .paginations import CustomPagination
+from .pagination import CustomPagination
 from .pdf_downloader import create_pdf_file
 from .permissions import IsAuthorOrReadOnly
 from .serializers import (
