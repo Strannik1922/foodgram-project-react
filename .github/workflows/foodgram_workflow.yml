@@ -62,8 +62,8 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
-          sudo docker pull ruzhova/backend:v1
-          sudo docker pull ruzhova/frontend:v1
+          sudo docker pull strannik1922/foodgram_backend:latest
+          sudo docker pull strannik1922/foodgram_frontend:latest
           sudo docker-compose stop
           sudo docker-compose rm backend
           sudo docker-compose rm frontend
