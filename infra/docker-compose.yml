@@ -1,11 +1,6 @@
 version: '3.8'
 services:
 
-  frontend:
-    image: strannik1922/foodgram_frontend:latest
-    volumes:
-      - ../frontend/:/app/result_build/
-
   db:
     image: postgres:14.4-alpine
     volumes:
@@ -23,6 +18,13 @@ services:
       - db
     env_file:
       - ./.env
+
+  frontend:
+    image: strannik1922/foodgram_frontend:latest
+    volumes:
+      - ../frontend/:/app/result_build/
+    depends_on:
+      - db
 
   nginx:
     image: nginx:1.19.3
