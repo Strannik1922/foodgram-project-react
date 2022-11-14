@@ -8,7 +8,7 @@ services:
       - ./.env
 
   backend:
-    image: strannik1922/backend:v1
+    image: strannik1922/foodgram_backend:latest
     volumes:
       - ../static/:/app/static/
       - ../media/:/app/media/recipes/
@@ -19,7 +19,7 @@ services:
     restart: always
 
   frontend:
-    image: strannik1922/frontend:v1
+    image: strannik1922/foodgram_frontend:latest
     volumes:
       - ../frontend/:/app/result_build/
     depends_on:
