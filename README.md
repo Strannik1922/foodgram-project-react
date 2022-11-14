@@ -91,7 +91,6 @@ POSTGRES_PASSWORD=12345 # password for connect to database
 DB_HOST=db # name container with database
 DB_PORT=5432 # login for connect to database
 SECRET_KEY=12345 # secret key for Django project
-SQLITE_ENGINE = # default database(option)
 
 #### 5. Run docker-compose.
 ```bash
@@ -118,3 +117,51 @@ open [URL](http://127.0.0.1/recipes) and enjoy.
 
 
 ### Author: Ivan Shamaiski
+
+
+## Installing and running the project on a remote server.
+#### For workflow to work correctly, you need to add environment variables to the Secrets of this repository on GitHub:
+
+* PostgreSQL = get from .env file
+* SECRET_KEY = get from .env file
+
+* DOCKER_USERNAME = username from DockerHub
+* DOCKER_PASSWORD = password from DockerHub
+
+* USER = username for log in to a remote server
+* HOST = ip adress of remote server
+* SSH_KEY = your private SSH key (to get use the command: cat ~/.ssh/id_rsa)
+* PASSPHRASE = if you specified the code to connect to the server via ssh
+
+* TELEGRAM_TO = your Telegram account id
+* TELEGRAM_TOKEN = your Telegram bot token
+
+#### 1. Log in to a remote server:
+```bash
+ssh <username>@<ip_address>
+```
+#### 2. Install Docker and Docker-compose.
+```bash
+sudo apt install docker.io
+sudo apt-get update
+sudo apt-get install docker-compose-plugin
+sudo apt install docker-compose
+```
+#### 3. Being locally in the infra/ directory, copy the docker-compose files.yml and nginx.conf to a remote server.
+```bash
+scp docker-compose.yml <username>@<host>:/home/<username>/
+scp nginx.conf <username>@<host>:/home/<username>/
+scp .env <username>@<host>:/home/<username>/
+```
+
+#### 4. Collect the container and create migrations.
+```bash
+sudo docker-compose up -d --build
+sudo docker-compose exec backend python manage.py migrate
+```
+
+#### 5. Create superuser and collect static.
+```bash
+sudo docker-compose exec backend python manage.py createsuperuser
+sudo docker-compose exec backend python manage.py collectstatic --no-input
+```
