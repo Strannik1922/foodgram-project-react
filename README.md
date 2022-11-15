@@ -21,7 +21,7 @@
 
 ### The service is available to users:
 ```
-http://158.160.39.30/
+http://158.160.37.130/
 ```
 
 ## Description.
