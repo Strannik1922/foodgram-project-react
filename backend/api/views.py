@@ -1,8 +1,6 @@
 from django.db.models import Sum
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-from djoser import utils, views
-from djoser.conf import settings
 from djoser.views import UserViewSet
 from rest_framework import permissions, status
 from rest_framework.decorators import action
@@ -35,18 +33,6 @@ from recipes.models import (
     Tag
 )
 from users.models import Follow, User
-
-
-class CustomTokenCreateView(views.TokenCreateView):
-    """Для получения токена."""
-    def _action(self, serializer):
-        super()._action(serializer)
-        token = utils.login_user(self.request, serializer.user)
-        token_serializer_class = settings.SERIALIZERS.token
-        return Response(
-            data=token_serializer_class(token).data,
-            status=status.HTTP_201_CREATED
-        )
 
 
 class TagViewSet(ReadOnlyModelViewSet):
