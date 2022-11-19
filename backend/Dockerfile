@@ -1,8 +1,11 @@
 FROM python:3.7-slim
+
 WORKDIR /app
-COPY . .
-RUN python -m pip install --upgrade pip
+
+COPY requirements.txt .
+
 RUN pip3 install -r requirements.txt --no-cache-dir
-RUN python manage.py collectstatic --no-input
-LABEL author='Ivan Shamaiski' version=1 email='shamaiskii.ivan@gmail.com'
-CMD ["gunicorn", "foodgram.wsgi:application", "--bind", "0:8000"]
+
+COPY . .
+
+CMD ["gunicorn", "foodgram.wsgi:application", "--bind", "0:8000" ]
