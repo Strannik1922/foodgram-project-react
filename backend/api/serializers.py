@@ -42,7 +42,10 @@ class CustomUserSerializer(UserSerializer):
         """
         request = self.context.get('request')
         return (request and request.user.is_authenticated
-                and request.user.follower(author=obj).exists())
+                and Follow.objects.filter(
+                    user=request.user,
+                    following=obj).exists()
+                )
 
 
 class CustomUserCreateSerializer(UserCreateSerializer):

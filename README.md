@@ -21,7 +21,7 @@
 
 ### The service is available to users:
 ```
-http://51.250.79.143/
+http://51.250.10.38/
 ```
 
 ## Description.

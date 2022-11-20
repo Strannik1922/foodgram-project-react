@@ -23,8 +23,8 @@ class ReciepeViewTestCase(TestCase):
         cls.user = User.objects.create_user(
             username='admin',
             password='admin',
-            first_name='egor',
-            last_name='letov',
+            first_name='ivan',
+            last_name='shamaiski',
         )
         cls.api_client = APIClient()
         cls.token = Token.objects.create(user=cls.user)
