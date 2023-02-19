@@ -16,7 +16,7 @@
 [![GitHub%20Actions](https://img.shields.io/badge/-GitHub%20Actions-464646?style=flat&logo=GitHub%20actions&logoColor=56C0C0&color=008080)](https://github.com/features/actions)
 [![Yandex.Cloud](https://img.shields.io/badge/-Yandex.Cloud-464646?style=flat&logo=Yandex.Cloud&logoColor=56C0C0&color=008080)](https://cloud.yandex.ru/)
 
-##### The full list of modules used in the project is available in [backend/requirements.txt](https://github.com/MrKalister/foodgram-project-react/blob/master/backend/requirements.txt)
+##### The full list of modules used in the project is available in [backend/requirements.txt](https://github.com/Strannik1922/foodgram-project-react/blob/master/backend/requirements.txt)
 
 
 ### The service is available to users:
